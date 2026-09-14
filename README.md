@@ -21,7 +21,7 @@ Currently open to **DevSecOps Engineer** roles, also considering **Cloud Securit
 | Secure CI/CD Pipeline Design | [SecureFlow](https://github.com/omjhub/SecureFlow-VulnerableCodebase) |
 | Infrastructure as Code (Terraform, AWS) | [VaultBridge](https://github.com/omjhub/vaultbridge-iac-modernisation) |
 | Application Security | [SentinelPay](https://github.com/sentinelpay-team/Sentinelpay) |
-| SIEM/SOAR & Threat Detection | Microsoft Sentinel SOC Proof of Concept |
+| SIEM/SOAR & Threat Detection | [Cloud Threat Detection with Microsoft Sentinel](https://github.com/omjhub/cloudscale-sentinel-soc-poc) |
 | Web Application Vulnerability Assessment | [Detecting Vulnerabilities in Web Applications](https://github.com/omjhub/Detecting-Vulnerabilities-In-Web-Applications) |
 
 ---
@@ -67,8 +67,8 @@ Led a five-person team securing a Flask-based fintech application end-to-end: ap
 ### ☁️ [VaultBridge](https://github.com/omjhub/vaultbridge-iac-modernisation) — Three-Tier AWS Infrastructure as Code
 Designed and built a production-grade three-tier AWS architecture in Terraform, with a GitHub Actions pipeline running tfsec and Checkov scanning. Technical report went through four rounds of review before sign-off.
 
-### 🛡️ Microsoft Sentinel SIEM/SOAR Proof of Concept
-Built a SIEM/SOAR proof of concept for a fictional logistics client, producing a case study report and presentation materials.
+### 🛡️ [Cloud Threat Detection with Microsoft Sentinel](https://github.com/omjhub/cloudscale-sentinel-soc-poc) — SIEM/SOAR Proof of Concept
+Deployed Microsoft Sentinel for a mid-market logistics client, cutting credential-compromise containment time from 4+ hours to under 5 minutes end-to-end, with automated incident notification firing in 13 seconds. Includes a full write-up of the custom detection rule debugging process.
 
 ### 🕵️ [Detecting Vulnerabilities in Web Applications](https://github.com/omjhub/Detecting-Vulnerabilities-In-Web-Applications) — MSc Project
 Web application security assessment identifying and documenting vulnerabilities, from my MSc research.
