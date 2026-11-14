@@ -6,7 +6,7 @@ DevSecOps Engineer focused on embedding security into CI/CD pipelines and cloud 
 
 ## Objective
 
-My path into DevSecOps started with identifying vulnerabilities directly, through web application security assessments during my MSc, before moving into building the pipelines and infrastructure that prevent those vulnerabilities from reaching production in the first place. From there I've worked across secret scanning, static analysis, container and IaC scanning, policy enforcement, and runtime threat detection, and I'm now extending that into infrastructure as code with Terraform and SIEM/SOAR operations with Microsoft Sentinel. I'm using this space to showcase that work while looking for DevSecOps and Cloud Security roles where I can help teams build resilient, secure-by-default systems.
+My path into DevSecOps started with identifying vulnerabilities directly, through web application security assessments after completing some software project and trying to make sure they are secure as a Good software developer, before moving into building the pipelines and infrastructure that prevent those vulnerabilities from reaching production in the first place. From there I've worked across secret scanning, static analysis, container and IaC scanning, policy enforcement, and runtime threat detection, and I'm now extending that into infrastructure as code with Terraform and SIEM/SOAR operations with Microsoft Sentinel. I'm using this space to showcase that work while looking for DevSecOps and Cloud Security roles where I can help teams build resilient, secure-by-default systems.
 
 Currently open to **DevSecOps Engineer** roles, also considering **Cloud Security Engineer**.
 
