@@ -13,7 +13,7 @@
 
 <br />
 
-## `$ whoami`
+<img src="./h-whoami.svg" width="100%" alt="whoami" />
 
 I build security into how software is shipped.
 
@@ -23,7 +23,7 @@ My background as a full-stack engineer means I understand the applications I sec
 
 <br />
 
-## `$ cat security-scorecard.md`
+<img src="./h-scorecard.svg" width="100%" alt="scorecard" />
 
 | Metric | Before | After | Project |
 | --- | :---: | :---: | --- |
@@ -36,7 +36,7 @@ My background as a full-stack engineer means I understand the applications I sec
 
 <br />
 
-## `$ ./how-i-ship.sh`
+<img src="./h-ship.svg" width="100%" alt="ship" />
 
 ```mermaid
 flowchart TB
@@ -61,7 +61,7 @@ flowchart TB
 
 <br />
 
-## `$ ls ~/toolbox`
+<img src="./h-toolbox.svg" width="100%" alt="toolbox" />
 
 <table>
 <tr>
@@ -162,10 +162,11 @@ flowchart TB
 
 <br />
 
-## `$ git log --featured`
+<img src="./h-featured.svg" width="100%" alt="featured" />
 
-> **`PLATFORM-SEC`** &nbsp; **[SecureX](https://github.com/omjhub/SecureX)** &nbsp; ![status](https://img.shields.io/badge/DEPLOYED-QA_%26_PROD-08090c?style=flat-square&labelColor=34d399)
-> ### Production-grade DevSecOps platform on Amazon EKS
+> ### [SecureX](https://github.com/omjhub/SecureX) &nbsp;·&nbsp; Production-grade DevSecOps platform on Amazon EKS
+> `PLATFORM-SEC` &nbsp; ![status](https://img.shields.io/badge/DEPLOYED-QA_%26_PROD-30363d?style=flat-square&labelColor=161b22)
+>
 > - **14-job pipeline** where Gitleaks, Checkov, Trivy and SonarQube all block a release, each proven with a deliberate failure
 > - Dependency CVEs **25 → 0**, test coverage **0% → 86.3%** with 31 Jest and Supertest tests
 > - Separate QA and production; production runs the **exact image QA tested**, promoted by SHA with **7 required checks**
@@ -173,36 +174,41 @@ flowchart TB
 >
 > `Amazon EKS` `GitHub Actions` `GitHub OIDC` `IRSA` `Trivy` `SonarQube` `Syft`
 
-> **`PIPELINE-SEC`** &nbsp; **[SecureFlow](https://github.com/omjhub/SecureFlow-VulnerableCodebase)** &nbsp; ![status](https://img.shields.io/badge/CLOSED-REMEDIATED-08090c?style=flat-square&labelColor=f0a83a)
-> ### Secure CI/CD pipeline for a banking platform
+> ### [SecureFlow](https://github.com/omjhub/SecureFlow-VulnerableCodebase) &nbsp;·&nbsp; Secure CI/CD pipeline for a banking platform
+> `PIPELINE-SEC` &nbsp; ![status](https://img.shields.io/badge/CLOSED-REMEDIATED-30363d?style=flat-square&labelColor=161b22)
+>
 > - Seven-stage pipeline securing a vulnerable banking microservices codebase
 > - Terraform findings **72 → 0**; a live pull request automatically blocked on **275 findings**
 >
 > `Gitleaks` `Trivy` `Checkov` `HashiCorp Vault` `OPA Gatekeeper` `Falco`
 
-> **`APPSEC-LEAD`** &nbsp; **[SentinelPay](https://github.com/sentinelpay-team/Sentinelpay)** &nbsp; ![status](https://img.shields.io/badge/TEAM_LEAD-5_ENGINEERS-08090c?style=flat-square&labelColor=f0a83a)
-> ### Securing an inherited fintech platform
+> ### [SentinelPay](https://github.com/sentinelpay-team/Sentinelpay) &nbsp;·&nbsp; Securing an inherited fintech platform
+> `APPSEC-LEAD` &nbsp; ![status](https://img.shields.io/badge/TEAM_LEAD-5_ENGINEERS-30363d?style=flat-square&labelColor=161b22)
+>
 > - Led threat modelling and remediation of SQL injection, JWT bypass, IDOR and a race condition, each proven with a before-and-after exploit
 > - CI/CD gates and supply chain controls (CycloneDX SBOMs, Cosign signing) ahead of a timed attack simulation
 >
 > `STRIDE` `Semgrep` `Bandit` `tfsec` `GuardDuty` `Cosign`
 
-> **`CLOUD-INFRA`** &nbsp; **[VaultBridge](https://github.com/omjhub/vaultbridge-iac-modernisation)** &nbsp; ![status](https://img.shields.io/badge/CLOSED-REMEDIATED-08090c?style=flat-square&labelColor=f0a83a)
-> ### Three-tier AWS infrastructure as code
+> ### [VaultBridge](https://github.com/omjhub/vaultbridge-iac-modernisation) &nbsp;·&nbsp; Three-tier AWS infrastructure as code
+> `CLOUD-INFRA` &nbsp; ![status](https://img.shields.io/badge/CLOSED-REMEDIATED-30363d?style=flat-square&labelColor=161b22)
+>
 > - Fixed the root cause of a **$214,000** incident in the client brief
 > - Security-group-only database access and a validation rule rejecting any SSH rule broader than /32
 >
 > `Terraform` `AWS` `tfsec` `Checkov`
 
-> **`DETECTION`** &nbsp; **[Cloud Threat Detection](https://github.com/omjhub/cloudscale-sentinel-soc-poc)** &nbsp; ![status](https://img.shields.io/badge/CLOSED-VALIDATED-08090c?style=flat-square&labelColor=f0a83a)
-> ### SIEM/SOAR with Microsoft Sentinel
+> ### [Cloud Threat Detection](https://github.com/omjhub/cloudscale-sentinel-soc-poc) &nbsp;·&nbsp; SIEM/SOAR with Microsoft Sentinel
+> `DETECTION` &nbsp; ![status](https://img.shields.io/badge/CLOSED-VALIDATED-30363d?style=flat-square&labelColor=161b22)
+>
 > - Detection-to-response cut from **4+ hours to under 5 minutes**
 > - Custom KQL rule debugged through live testing; Logic Apps playbook firing within **13 seconds**
 >
 > `Microsoft Sentinel` `KQL` `Logic Apps` `Entra ID`
 
-> **`RESEARCH`** &nbsp; **[Web Vulnerability Detection](https://github.com/omjhub/Detecting-Vulnerabilities-In-Web-Applications)** &nbsp; ![status](https://img.shields.io/badge/MSc_DISSERTATION-74%25-08090c?style=flat-square&labelColor=a7aeba)
-> ### Extending OWASP ZAP detection granularity
+> ### [Web Vulnerability Detection](https://github.com/omjhub/Detecting-Vulnerabilities-In-Web-Applications) &nbsp;·&nbsp; Extending OWASP ZAP detection granularity
+> `RESEARCH` &nbsp; ![status](https://img.shields.io/badge/MSc_DISSERTATION-74%25-30363d?style=flat-square&labelColor=161b22)
+>
 > - Baseline differential response verification on top of ZAP
 > - Two of three false negatives turned into confirmed true positives with **zero new false positives**
 >
@@ -210,7 +216,7 @@ flowchart TB
 
 <br />
 
-## `$ history | grep work`
+<img src="./h-work.svg" width="100%" alt="work" />
 
 <table>
 <tr>
