@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/header.svg" width="100%" alt="Omajuwa Okotie, DevSecOps and Cloud Security Engineer" />
+<img src="./header.svg" width="100%" alt="Omajuwa Okotie, DevSecOps and Cloud Security Engineer" />
 
 <br /><br />
 
