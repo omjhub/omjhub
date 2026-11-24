@@ -1,32 +1,19 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:08090c,60:12161f,100:1f2a3a&height=230&section=header&text=OMAJUWA%20OKOTIE&fontSize=64&fontColor=f0a83a&fontAlignY=38&desc=DevSecOps%20and%20Cloud%20Security%20Engineer&descAlignY=60&descSize=20&descColor=a7aeba&animation=fadeIn" width="100%" alt="Omajuwa Okotie, DevSecOps and Cloud Security Engineer" />
-
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=20&pause=1200&color=F0A83A&center=true&vCenter=true&width=640&height=45&lines=DevSecOps+Engineer;Cloud+Security+Engineer;Application+Security+Engineer;Secure+CI%2FCD+%7C+AWS+%7C+Kubernetes" alt="Roles" />
-
-<br />
-
-<a href="https://omajuwaokotie.com">
-  <img src="https://img.shields.io/badge/Portfolio-omajuwaokotie.com-f0a83a?style=for-the-badge&labelColor=08090c" alt="Portfolio" />
-</a>
-<a href="https://www.linkedin.com/in/omajuwa-okotie-850950190">
-  <img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=08090c" alt="LinkedIn" />
-</a>
-<a href="mailto:okotieomajuwa2016@gmail.com">
-  <img src="https://img.shields.io/badge/Email-Get_in_touch-EA4335?style=for-the-badge&logo=gmail&logoColor=white&labelColor=08090c" alt="Email" />
-</a>
+<img src="./assets/header.svg" width="100%" alt="Omajuwa Okotie, DevSecOps and Cloud Security Engineer" />
 
 <br /><br />
 
-<img src="https://img.shields.io/badge/Open_to-DevSecOps_%7C_Cloud_Security_%7C_AppSec_roles-34d399?style=flat-square&labelColor=08090c" alt="Open to work" />
-<img src="https://img.shields.io/badge/Location-London,_UK-a7aeba?style=flat-square&labelColor=08090c" alt="London, UK" />
-<img src="https://img.shields.io/badge/Availability-Immediate-34d399?style=flat-square&labelColor=08090c" alt="Available immediately" />
+<a href="https://omajuwaokotie.com"><img src="https://img.shields.io/badge/Portfolio-omajuwaokotie.com-f0a83a?style=flat-square&labelColor=08090c" alt="Portfolio" /></a>
+<a href="https://www.linkedin.com/in/omajuwa-okotie-850950190"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white&labelColor=08090c" alt="LinkedIn" /></a>
+<a href="mailto:okotieomajuwa2016@gmail.com"><img src="https://img.shields.io/badge/Email-Get_in_touch-EA4335?style=flat-square&logo=gmail&logoColor=white&labelColor=08090c" alt="Email" /></a>
+<img src="https://img.shields.io/badge/Available-Immediately-34d399?style=flat-square&labelColor=08090c" alt="Available immediately" />
 
 </div>
 
 <br />
 
-## About
+## `$ whoami`
 
 I build security into how software is shipped.
 
@@ -34,27 +21,47 @@ Over five years building and deploying software, including over three years focu
 
 My background as a full-stack engineer means I understand the applications I secure, not just how to scan them. MSc Computer Forensics and Cybersecurity with **Distinction**, University of Greenwich.
 
-**What I am hands on with right now**
+<br />
 
-* Amazon EKS with separate QA and production environments, promoted by commit SHA
-* Keyless pipelines with GitHub OIDC, AWS Secrets Manager, External Secrets Operator and IRSA
-* Blocking security gates with Gitleaks, Checkov, Trivy and SonarQube
-* Software supply chain controls with SBOMs and image signing
+## `$ cat security-scorecard.md`
+
+| Metric | Before | After | Project |
+| --- | :---: | :---: | --- |
+| Terraform security findings (Checkov) | 72 | **0** | SecureFlow |
+| Known dependency vulnerabilities | 25 | **0** | SecureX |
+| Test coverage in SonarQube | 0% | **86.3%** | SecureX |
+| Security gates that block a release | 0 of 4 | **4 of 4** | SecureX |
+| Credential compromise detection to response | 4+ hours | **< 5 min** | Sentinel |
+| Stored cloud credentials in CI/CD | Access keys | **None (OIDC)** | SecureX |
 
 <br />
 
-<div align="center">
+## `$ ./how-i-ship.sh`
 
-<img src="https://img.shields.io/badge/IaC_Findings-72_%E2%86%92_0-f0a83a?style=for-the-badge&labelColor=08090c" alt="IaC findings 72 to 0" />
-<img src="https://img.shields.io/badge/Dependency_CVEs-25_%E2%86%92_0-f0a83a?style=for-the-badge&labelColor=08090c" alt="Dependency vulnerabilities 25 to 0" />
-<img src="https://img.shields.io/badge/Test_Coverage-0%25_%E2%86%92_86.3%25-f0a83a?style=for-the-badge&labelColor=08090c" alt="Test coverage 0 to 86.3 percent" />
-<img src="https://img.shields.io/badge/Response_Time-4h%2B_%E2%86%92_%3C5_min-f0a83a?style=for-the-badge&labelColor=08090c" alt="Response time 4 hours to under 5 minutes" />
-
-</div>
+```mermaid
+flowchart TB
+    subgraph S1["🛡️ Shift-left gates: any failure blocks the release"]
+        direction LR
+        A["💻 Commit / PR"] --> B["🔑 Secrets<br/>Gitleaks"] --> C["🧱 IaC & Config<br/>Checkov · tfsec"] --> D["📦 Dependencies<br/>Trivy · SCA"] --> E["🔍 Code<br/>SAST · SonarQube"]
+    end
+    subgraph S2["🚀 Deliver & operate"]
+        direction LR
+        F["🐳 Image<br/>Scan · SBOM · Sign"] --> G["🧪 QA on EKS"] --> H["✅ Production<br/>same image, by SHA"] --> I["📈 Monitor & Detect<br/>Prometheus · Sentinel"]
+    end
+    S1 --> S2
+    classDef gate fill:#1a1508,stroke:#f0a83a,color:#e8eaef
+    classDef env fill:#0f2a1f,stroke:#34d399,color:#e8eaef
+    classDef start fill:#12161f,stroke:#a7aeba,color:#e8eaef
+    class B,C,D,E,F gate
+    class G,H,I env
+    class A start
+    style S1 fill:#0d1117,stroke:#f0a83a,color:#f0a83a
+    style S2 fill:#0d1117,stroke:#34d399,color:#34d399
+```
 
 <br />
 
-## Technical Arsenal
+## `$ ls ~/toolbox`
 
 <table>
 <tr>
@@ -155,38 +162,55 @@ My background as a full-stack engineer means I understand the applications I sec
 
 <br />
 
-## Featured Work
+## `$ git log --featured`
 
-<table>
-<tr>
-<td valign="top" width="34%"><b><a href="https://github.com/omjhub/SecureX">SecureX</a></b><br /><sub>Production-grade DevSecOps platform on Amazon EKS</sub><br /><sub>EKS, GitHub Actions, OIDC, IRSA, Trivy, SonarQube</sub></td>
-<td valign="top">Node.js and MySQL app delivered to Amazon EKS through a <b>14-job pipeline</b> where Gitleaks, Checkov, Trivy and SonarQube all block a release, each proven with a deliberate failure. Separate QA and production, production runs the <b>exact image QA tested</b>, 7 required checks on <code>main</code> and <b>no stored cloud keys</b>. Dependency CVEs <b>25 to 0</b>, coverage <b>0% to 86.3%</b>.</td>
-</tr>
-<tr>
-<td valign="top"><b><a href="https://github.com/omjhub/SecureFlow-VulnerableCodebase">SecureFlow</a></b><br /><sub>Secure CI/CD pipeline for a banking platform</sub><br /><sub>Gitleaks, Trivy, Checkov, Vault, OPA, Falco</sub></td>
-<td valign="top">Seven-stage pipeline securing a vulnerable banking microservices codebase. Terraform findings reduced from <b>72 to 0</b>, and a live pull request was automatically blocked on <b>275 findings</b> across secret, image and IaC scans.</td>
-</tr>
-<tr>
-<td valign="top"><b><a href="https://github.com/sentinelpay-team/Sentinelpay">SentinelPay</a></b><br /><sub>Security Team Lead, five-person team</sub><br /><sub>Semgrep, Bandit, tfsec, KMS, GuardDuty, Cosign</sub></td>
-<td valign="top">Led STRIDE threat modelling and remediation of SQL injection, JWT bypass, IDOR and a wallet race condition, each proven with a before-and-after exploit. CI/CD gates and supply chain controls (CycloneDX SBOMs, Cosign signing) delivered ahead of a timed attack simulation.</td>
-</tr>
-<tr>
-<td valign="top"><b><a href="https://github.com/omjhub/vaultbridge-iac-modernisation">VaultBridge</a></b><br /><sub>Three-tier AWS infrastructure as code</sub><br /><sub>Terraform, AWS, tfsec, Checkov</sub></td>
-<td valign="top">Three-tier AWS architecture in Terraform fixing the root cause of a <b>$214,000</b> incident in the client brief: security-group-only database access, a validation rule rejecting any SSH rule broader than /32, and review before apply.</td>
-</tr>
-<tr>
-<td valign="top"><b><a href="https://github.com/omjhub/cloudscale-sentinel-soc-poc">Cloud Threat Detection</a></b><br /><sub>SIEM/SOAR with Microsoft Sentinel</sub><br /><sub>Sentinel, KQL, Logic Apps, Entra ID</sub></td>
-<td valign="top">Credential compromise detection-to-response cut from <b>4+ hours to under 5 minutes</b>, with a custom KQL rule debugged through live testing and a Logic Apps playbook firing within <b>13 seconds</b>.</td>
-</tr>
-<tr>
-<td valign="top"><b><a href="https://github.com/omjhub/Detecting-Vulnerabilities-In-Web-Applications">Web Vulnerability Detection</a></b><br /><sub>MSc dissertation (74%)</sub><br /><sub>Python, OWASP ZAP, DVWA, Juice Shop</sub></td>
-<td valign="top">Python tool extending OWASP ZAP with baseline differential response verification, converting two of ZAP's three false negatives into confirmed true positives with <b>zero new false positives</b>.</td>
-</tr>
-</table>
+> **`PLATFORM-SEC`** &nbsp; **[SecureX](https://github.com/omjhub/SecureX)** &nbsp; ![status](https://img.shields.io/badge/DEPLOYED-QA_%26_PROD-08090c?style=flat-square&labelColor=34d399)
+> ### Production-grade DevSecOps platform on Amazon EKS
+> - **14-job pipeline** where Gitleaks, Checkov, Trivy and SonarQube all block a release, each proven with a deliberate failure
+> - Dependency CVEs **25 → 0**, test coverage **0% → 86.3%** with 31 Jest and Supertest tests
+> - Separate QA and production; production runs the **exact image QA tested**, promoted by SHA with **7 required checks**
+> - **No stored cloud keys**: GitHub OIDC, Secrets Manager, External Secrets Operator and IRSA
+>
+> `Amazon EKS` `GitHub Actions` `GitHub OIDC` `IRSA` `Trivy` `SonarQube` `Syft`
+
+> **`PIPELINE-SEC`** &nbsp; **[SecureFlow](https://github.com/omjhub/SecureFlow-VulnerableCodebase)** &nbsp; ![status](https://img.shields.io/badge/CLOSED-REMEDIATED-08090c?style=flat-square&labelColor=f0a83a)
+> ### Secure CI/CD pipeline for a banking platform
+> - Seven-stage pipeline securing a vulnerable banking microservices codebase
+> - Terraform findings **72 → 0**; a live pull request automatically blocked on **275 findings**
+>
+> `Gitleaks` `Trivy` `Checkov` `HashiCorp Vault` `OPA Gatekeeper` `Falco`
+
+> **`APPSEC-LEAD`** &nbsp; **[SentinelPay](https://github.com/sentinelpay-team/Sentinelpay)** &nbsp; ![status](https://img.shields.io/badge/TEAM_LEAD-5_ENGINEERS-08090c?style=flat-square&labelColor=f0a83a)
+> ### Securing an inherited fintech platform
+> - Led threat modelling and remediation of SQL injection, JWT bypass, IDOR and a race condition, each proven with a before-and-after exploit
+> - CI/CD gates and supply chain controls (CycloneDX SBOMs, Cosign signing) ahead of a timed attack simulation
+>
+> `STRIDE` `Semgrep` `Bandit` `tfsec` `GuardDuty` `Cosign`
+
+> **`CLOUD-INFRA`** &nbsp; **[VaultBridge](https://github.com/omjhub/vaultbridge-iac-modernisation)** &nbsp; ![status](https://img.shields.io/badge/CLOSED-REMEDIATED-08090c?style=flat-square&labelColor=f0a83a)
+> ### Three-tier AWS infrastructure as code
+> - Fixed the root cause of a **$214,000** incident in the client brief
+> - Security-group-only database access and a validation rule rejecting any SSH rule broader than /32
+>
+> `Terraform` `AWS` `tfsec` `Checkov`
+
+> **`DETECTION`** &nbsp; **[Cloud Threat Detection](https://github.com/omjhub/cloudscale-sentinel-soc-poc)** &nbsp; ![status](https://img.shields.io/badge/CLOSED-VALIDATED-08090c?style=flat-square&labelColor=f0a83a)
+> ### SIEM/SOAR with Microsoft Sentinel
+> - Detection-to-response cut from **4+ hours to under 5 minutes**
+> - Custom KQL rule debugged through live testing; Logic Apps playbook firing within **13 seconds**
+>
+> `Microsoft Sentinel` `KQL` `Logic Apps` `Entra ID`
+
+> **`RESEARCH`** &nbsp; **[Web Vulnerability Detection](https://github.com/omjhub/Detecting-Vulnerabilities-In-Web-Applications)** &nbsp; ![status](https://img.shields.io/badge/MSc_DISSERTATION-74%25-08090c?style=flat-square&labelColor=a7aeba)
+> ### Extending OWASP ZAP detection granularity
+> - Baseline differential response verification on top of ZAP
+> - Two of three false negatives turned into confirmed true positives with **zero new false positives**
+>
+> `Python` `OWASP ZAP` `DVWA` `Juice Shop`
 
 <br />
 
-## Experience
+## `$ history | grep work`
 
 <table>
 <tr>
@@ -207,12 +231,10 @@ My background as a full-stack engineer means I understand the applications I sec
 
 <div align="center">
 
-**Open to DevSecOps, Cloud Security and Application Security Engineer roles in the UK. Available immediately.**
+```bash
+$ echo "Open to DevSecOps, Cloud Security and AppSec Engineer roles in the UK. Available immediately."
+```
 
-If you are building something that needs to ship fast and stay secure, I would love to hear about it.
-
-<a href="https://omajuwaokotie.com">omajuwaokotie.com</a> &nbsp;·&nbsp; <a href="mailto:okotieomajuwa2016@gmail.com">okotieomajuwa2016@gmail.com</a>
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1f2a3a,40:12161f,100:08090c&height=120&section=footer" width="100%" alt="" />
+<a href="https://omajuwaokotie.com">omajuwaokotie.com</a> &nbsp;·&nbsp; <a href="mailto:okotieomajuwa2016@gmail.com">okotieomajuwa2016@gmail.com</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/omajuwa-okotie-850950190">LinkedIn</a>
 
 </div>
