@@ -28,11 +28,15 @@ My background as a full-stack engineer means I understand the applications I sec
 | Metric | Before | After | Project |
 | --- | :---: | :---: | --- |
 | Terraform security findings (Checkov) | 72 | **0** | SecureFlow |
+| DevSecOps-owned findings at the security gate | 339 | **0 (gate passed)** | SecureFlow |
 | Known dependency vulnerabilities | 25 | **0** | SecureX |
 | Test coverage in SonarQube | 0% | **86.3%** | SecureX |
 | Security gates that block a release | 0 of 4 | **4 of 4** | SecureX |
 | Credential compromise detection to response | 4+ hours | **< 5 min** | Sentinel |
 | Stored cloud credentials in CI/CD | Access keys | **None (OIDC)** | SecureX |
+| Required security checks on `main` | 0 | **10 of 10 passing** | SentinelPay |
+| Application findings closed | 0 of 11 | **11 of 11** | SentinelPay |
+| Verified vulnerabilities confirmed (DVWA) | 4 of 8 (ZAP alone) | **7 of 8** | MSc research |
 
 <br />
 
@@ -177,24 +181,26 @@ flowchart TB
 > ### [SecureFlow](https://github.com/omjhub/SecureFlow-VulnerableCodebase) &nbsp;·&nbsp; Secure CI/CD pipeline for a banking platform
 > `PIPELINE-SEC` &nbsp; ![status](https://img.shields.io/badge/CLOSED-REMEDIATED-30363d?style=flat-square&labelColor=161b22)
 >
-> - Seven-stage pipeline securing a vulnerable banking microservices codebase
-> - Terraform findings **72 → 0**; a live pull request automatically blocked on **275 findings**
+> - Seven-stage pipeline securing a vulnerable banking microservices codebase, with an **ownership-based security gate**, a written policy and an auditable exception workflow
+> - Terraform findings **72 → 0**; the gate blocked a live pull request on **339 findings**, then **passed at 0** after remediation
 >
 > `Gitleaks` `Trivy` `Checkov` `HashiCorp Vault` `OPA Gatekeeper` `Falco`
 
 > ### [SentinelPay](https://github.com/sentinelpay-team/Sentinelpay) &nbsp;·&nbsp; Securing an inherited fintech platform
 > `APPSEC-LEAD` &nbsp; ![status](https://img.shields.io/badge/TEAM_LEAD-5_ENGINEERS-30363d?style=flat-square&labelColor=161b22)
 >
-> - Led threat modelling and remediation of SQL injection, JWT bypass, IDOR and a race condition, each proven with a before-and-after exploit
-> - CI/CD gates and supply chain controls (CycloneDX SBOMs, Cosign signing) ahead of a timed attack simulation
+> - Ran live STRIDE threat modelling on the source code (**21 threats**, 8 trust boundaries) and set the fix order, JWT first
+> - Reviewed every pull request as the team closed **11 of 11** application findings, each proven with a before-and-after exploit
+> - Ten-gate pipeline with **10 of 10** checks passing, GitHub OIDC, OPA policy as code and Cosign-signed images with SBOMs
 >
-> `STRIDE` `Semgrep` `Bandit` `tfsec` `GuardDuty` `Cosign`
+> `STRIDE` `Semgrep` `Bandit` `OPA` `GuardDuty` `Cosign`
 
 > ### [VaultBridge](https://github.com/omjhub/vaultbridge-iac-modernisation) &nbsp;·&nbsp; Three-tier AWS infrastructure as code
 > `CLOUD-INFRA` &nbsp; ![status](https://img.shields.io/badge/CLOSED-REMEDIATED-30363d?style=flat-square&labelColor=161b22)
 >
 > - Fixed the root cause of a **$214,000** incident in the client brief
 > - Security-group-only database access and a validation rule rejecting any SSH rule broader than /32
+> - Plan on pull request, apply only on merge; **ten** validation rules and **19 of 19** success metrics met
 >
 > `Terraform` `AWS` `tfsec` `Checkov`
 
@@ -210,7 +216,7 @@ flowchart TB
 > `RESEARCH` &nbsp; ![status](https://img.shields.io/badge/MSc_DISSERTATION-74%25-30363d?style=flat-square&labelColor=161b22)
 >
 > - Baseline differential response verification on top of ZAP
-> - Two of three false negatives turned into confirmed true positives with **zero new false positives**
+> - On DVWA, ZAP alone raised **4** alerts against 8 verified vulnerabilities; with the tool, **7 of 8** were confirmed, including two XSS filter bypasses, with **zero new false positives**
 >
 > `Python` `OWASP ZAP` `DVWA` `Juice Shop`
 
